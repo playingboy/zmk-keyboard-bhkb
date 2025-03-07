@@ -1,7 +1,33 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+
+&i2c0 {
+	compatible = "nordic,nrf-twi";
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+	sda-pin = <26>;
+	scl-pin = <27>;
+
+    bhkb_view: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        label = "SSD1306";
+        height = <32>;
+        width  = <128>;
+        segment-offset  = <0>;
+        page-offset     = <0>;
+        display-offset  = <0>;
+        multiplex-ratio = <31>;
+        prechargep      = <0xD1>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+    };
+};
+
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
+        zephyr,display = &bhkb_view;
         // Other chosen items
     };
     kscan0: kscan0 {
