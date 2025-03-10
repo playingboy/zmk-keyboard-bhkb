@@ -3,27 +3,26 @@
 &i2c0 {
     status = "okay";
 
-    bhkb_view: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        label = "SSD1306";
-        height = <32>;
-        width  = <128>;
-        segment-offset  = <0>;
-        page-offset     = <0>;
-        display-offset  = <0>;
-        multiplex-ratio = <31>;
-        prechargep      = <0xD1>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-    };
+    ssd1306_ssd1306_128x32: ssd1306@3c {
+		compatible = "solomon,ssd1306fb";
+		reg = <0x3c>;
+		width = <128>;
+		height = <32>;
+		segment-offset = <0>;
+		page-offset = <0>;
+		display-offset = <0>;
+		multiplex-ratio = <31>;
+		segment-remap;
+		com-invdir;
+		com-sequential;
+		prechargep = <0x22>;
+	};
 };
 
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
-        zephyr,display = &bhkb_view;
+        zephyr,display = &ssd1306_ssd1306_128x32;
         // Other chosen items
     };
     kscan0: kscan0 {
