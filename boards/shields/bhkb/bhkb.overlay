@@ -2,12 +2,13 @@
 
 &i2c0 {
     status = "okay";
-    compatible = "nordic,nrf-twi";
+    compatible = "nordic,nrf-twim";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     clock-frequency = <I2C_BITRATE_FAST>;
     pinctrl-names = "default", "sleep";
-
+    zephyr,concat-buf-size = <4096>;
+    
     ssd1306_ssd1306_128x32: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
@@ -28,16 +29,16 @@
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-                <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,
+                <NRF_PSEL(TWIM_SCL, 0, 11)>;
             bias-pull-up;
         };
     };
 
     i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-                <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,
+                <NRF_PSEL(TWIM_SCL, 0, 11)>;
             low-power-enable;
         };
     };
