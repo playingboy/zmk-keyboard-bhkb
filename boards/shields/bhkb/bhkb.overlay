@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&i2c0 {
+/* &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twim";
     pinctrl-0 = <&i2c0_default>;
@@ -40,12 +40,12 @@
                 <NRF_PSEL(TWIM_SCL, 0, 20)>;
         };
     };
-};
+};*/
 
 / {
     chosen {
         zmk,physical-layout = &physical_layout0;
-        zephyr,display = &ssd1306_ssd1306_128x32;
+        // zephyr,display = &ssd1306_ssd1306_128x32;
         // Other chosen items
     };
     kscan0: kscan0 {
