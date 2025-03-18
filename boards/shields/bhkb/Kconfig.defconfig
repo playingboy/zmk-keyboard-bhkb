@@ -5,3 +5,13 @@ config ZMK_KEYBOARD_NAME
     default "bhkb"
 
 endif
+
+if ZMK_DISPLAY
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+endif # ZMK_DISPLAY
