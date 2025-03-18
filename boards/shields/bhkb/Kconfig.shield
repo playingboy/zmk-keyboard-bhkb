@@ -1,3 +1,5 @@
-# No whitespace after the comma or in your keyboard name!
+# Copyright (c) 2020 Pete Johanson
+# SPDX-License-Identifier: MIT
+
 config SHIELD_BHKB
     def_bool $(shields_list_contains,bhkb)

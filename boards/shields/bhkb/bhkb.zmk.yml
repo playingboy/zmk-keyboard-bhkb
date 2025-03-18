@@ -4,5 +4,7 @@ name: BHKB
 type: shield
 url:  https://github.com/playingboy/zmk-keyboard-bhkb
 requires: [pro_micro]
+exposes: [i2c_oled]
 features:
   - keys
+  - display
