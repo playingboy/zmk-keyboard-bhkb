@@ -4,8 +4,6 @@ if SHIELD_BHKB
 config ZMK_KEYBOARD_NAME
     default "bhkb"
 
-endif
-
 if ZMK_DISPLAY
 
 config I2C
@@ -32,3 +30,5 @@ choice LV_COLOR_DEPTH
 endchoice
 
 endif # LVGL
+
+endif
